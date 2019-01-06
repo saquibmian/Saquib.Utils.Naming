@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <PackageVersion>1.0.0</PackageVersion>
+    <PackageVersion>1.0.0-dev</PackageVersion>
     <PackageProjectUrl>https://github.com/saquibmian/Saquib.Utils.Naming</PackageProjectUrl>
     <PackageDescription>A set of strategies for altering names, including camel and pascal casing.</PackageDescription>
   </PropertyGroup>

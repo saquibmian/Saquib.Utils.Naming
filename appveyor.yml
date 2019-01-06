@@ -10,7 +10,7 @@ before_build:
   - cmd: dotnet --version
   - cmd: dotnet restore --verbosity m
 build_script:
-  - cmd: dotnet pack ./Saquib.Utils.Naming/Saquib.Utils.Naming.csproj -c Release --include-source --include-symbols
+  - cmd: dotnet pack -p:PackageVersion=%APPVEYOR_BUILD_VERSION% ./Saquib.Utils.Naming/Saquib.Utils.Naming.csproj -c Release --include-source --include-symbols
 test_script:
   - cmd: dotnet test ./Saquib.Utils.Naming.Tests/Saquib.Utils.Naming.Tests.csproj
 artifacts:
