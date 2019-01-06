@@ -10,12 +10,16 @@ before_build:
   - cmd: dotnet --version
   - cmd: dotnet restore --verbosity m
 build_script:
-  - cmd: dotnet pack ./Saquib.Utils.Naming/Saquib.Utils.Naming.csproj -c Release --include-source --include-symbols -o ../artifacts
+  - cmd: dotnet pack ./Saquib.Utils.Naming/Saquib.Utils.Naming.csproj -c Release --include-source --include-symbols
 test_script:
   - cmd: dotnet test ./Saquib.Utils.Naming.Tests/Saquib.Utils.Naming.Tests.csproj
+artifacts:
+ - path: '**\*.nupkg'
+   name: nuget packages
+   type: NuGetPackage
 deploy:
   provider: NuGet
   api_key:
     secure: vg0d3t3PR6ry+wZ6KcZKmNO1/5iE/W50QcsphboHFXfKZQxi0BWi8IxfLMs3F93b
   skip_symbols: false
-  artifact: /artifacts\\.*\.nupkg/
+  artifact: nuget packages
