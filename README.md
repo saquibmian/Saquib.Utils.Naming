@@ -5,7 +5,7 @@ Contains a set of strategies for altering names. Current strategies include:
 - camelCaseNamingStrategy
 - PascalCaseNamingStrategy
 
-The following four naming source naming conventions are supported:
+The following four source naming conventions are supported:
 
 - lastModifiedDate
 - LastModifiedDate
