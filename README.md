@@ -2,7 +2,7 @@
 
 Contains a set of strategies for altering names. Current strategies include:
 
-- CamelCaseNamingStrategy
+- camelCaseNamingStrategy
 - PascalCaseNamingStrategy
 
 The following four naming source naming conventions are supported:
