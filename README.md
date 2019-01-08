@@ -2,8 +2,9 @@
 
 Contains a set of strategies for altering names. Current strategies include:
 
-- camelCaseNamingStrategy
-- PascalCaseNamingStrategy
+- camelCase
+- PascalCase
+- snake_case
 
 The following four source naming conventions are supported:
 
