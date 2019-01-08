@@ -5,12 +5,13 @@ namespace Saquib.Utils.Naming {
         private readonly CamelCaseNamingStrategy _strategy = new CamelCaseNamingStrategy();
 
         [Theory]
-        [InlineData( "lastModifiedDate" )]
-        [InlineData( "LastModifiedDate" )]
-        [InlineData( "last-modified-date" )]
-        [InlineData( "last_modified_date" )]
+        [InlineData( "last22modifiedDate" )]
+        [InlineData( "last22ModifiedDate" )]
+        [InlineData( "Last22ModifiedDate" )]
+        [InlineData( "last-22-modified-date" )]
+        [InlineData( "last_22_modified_date" )]
         public void Apply( string input ) {
-            var expected = "lastModifiedDate";
+            var expected = "last22ModifiedDate";
 
             var actual = _strategy.Apply( input );
 
