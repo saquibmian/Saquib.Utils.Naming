@@ -9,6 +9,7 @@ namespace Saquib.Utils.Naming {
         [InlineData( "last22ModifiedDate" )]
         [InlineData( "Last22ModifiedDate" )]
         [InlineData( "last-22-modified-date" )]
+        [InlineData( "Last-22-Modified-Date" )]
         [InlineData( "last_22_modified_date" )]
         public void Apply( string input ) {
             var expected = "Last22ModifiedDate";

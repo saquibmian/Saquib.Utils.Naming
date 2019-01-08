@@ -1,17 +1,12 @@
 # Saquib.Utils.Naming
 
-Contains a set of strategies for altering names. Current strategies include:
+Contains a set of strategies for altering names to a casing style. Currently supported strategies include:
 
 - camelCase
 - PascalCase
 - snake_case
-
-The following four source naming conventions are supported:
-
-- lastModifiedDate
-- LastModifiedDate
-- last-modified-date
-- last_modified_date
+- kebab-case
+- Train-Case
 
 ## Usage
 

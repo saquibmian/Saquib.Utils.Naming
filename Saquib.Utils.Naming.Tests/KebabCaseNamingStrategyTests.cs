@@ -1,8 +1,8 @@
 using Xunit;
 
 namespace Saquib.Utils.Naming {
-    public sealed class CamelCaseNamingStrategyTests {
-        private readonly CamelCaseNamingStrategy _strategy = new CamelCaseNamingStrategy();
+    public sealed class KebabCaseNamingStrategyTests {
+        private readonly KebabCaseNamingStrategy _strategy = new KebabCaseNamingStrategy();
 
         [Theory]
         [InlineData( "last22modifiedDate" )]
@@ -12,7 +12,7 @@ namespace Saquib.Utils.Naming {
         [InlineData( "Last-22-Modified-Date" )]
         [InlineData( "last_22_modified_date" )]
         public void Apply( string input ) {
-            var expected = "last22ModifiedDate";
+            var expected = "last-22-modified-date";
 
             var actual = _strategy.Apply( input );
 
