@@ -7,6 +7,8 @@ Contains a set of strategies for altering names to a casing style. Currently sup
 - snake_case
 - kebab-case
 - Train-Case
+- Title Case
+- Sentence case
 
 ## Usage
 
