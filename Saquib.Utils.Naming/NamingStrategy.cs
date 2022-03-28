@@ -6,8 +6,8 @@ namespace Saquib.Utils.Naming {
         protected string Capitalize( string str ) {
             return char.ToUpper( str[0] ) + str.Substring( 1 );
         }
-        protected string[] SplitNames( string str ) {
-            return NameSplitter.Split( str );
+        protected string[] SplitNames( string str, bool preserveCase = false ) {
+            return NameSplitter.Split( str, preserveCase );
         }
     }
 }

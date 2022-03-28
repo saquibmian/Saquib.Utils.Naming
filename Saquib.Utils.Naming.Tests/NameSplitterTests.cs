@@ -22,6 +22,7 @@ namespace Saquib.Utils.Naming {
         [InlineData( "Last222ModifiedDates" )]
         [InlineData( "last-222-modified-dates" )]
         [InlineData( "last_222_modified_dates" )]
+        [InlineData( "Last-222-Modified-Dates" )]
         public void Split__WithNumbers( string input ) {
             var expected = new[] { "last", "222", "modified", "dates" };
 
