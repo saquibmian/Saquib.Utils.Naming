@@ -18,5 +18,13 @@ namespace Saquib.Utils.Naming {
 
             Assert.Equal( expected, actual );
         }
+        [Fact]
+        public void Apply__Acronym() {
+            var expected = "urlOptions";
+
+            var actual = _strategy.Apply( "URLOptions" );
+
+            Assert.Equal( expected, actual );
+        }
     }
 }

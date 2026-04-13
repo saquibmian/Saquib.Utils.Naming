@@ -14,18 +14,7 @@ namespace Saquib.Utils.Naming {
         }
 
         private static IEnumerable<string> SplitInternal( ReadOnlySpan<char> name, bool preserveCase ) {
-            var ranges = ConditionalSplit( name, ( previous, current ) => {
-                return (
-                   // we went from '1' to 'A', treat this as a part
-                   char.IsNumber( previous ) && char.IsLetter( current )
-                ) || (
-                   // we went from 'A' to '1', treat this as a part
-                   char.IsLetter( previous ) && char.IsNumber( current )
-                ) || (
-                   // we went from 'a' to 'A', treat this as a part
-                   !char.IsUpper( previous ) && char.IsUpper( current )
-                );
-            } );
+            var ranges = SplitIntoRanges( name );
             var parts = new List<string>( ranges.Count );
             foreach (var range in ranges) {
                 var part = name[range].ToString();
@@ -34,7 +23,7 @@ namespace Saquib.Utils.Naming {
             return parts;
         }
 
-        private static List<Range> ConditionalSplit( ReadOnlySpan<char> name, Func<char, char, bool> shouldSplit ) {
+        private static List<Range> SplitIntoRanges( ReadOnlySpan<char> name ) {
             var ranges = new List<Range>();
 
             var start = 0;
@@ -49,9 +38,23 @@ namespace Saquib.Utils.Naming {
                     }
                     continue;
                 }
-                if (shouldSplit( previous, current )) {
+                // we went from '1' to 'A' or 'A' to '1', treat this as a part
+                if ((char.IsNumber( previous ) && char.IsLetter( current )) || (char.IsLetter( previous ) && char.IsNumber( current ))) {
                     ranges.Add( new Range( start, i ) );
                     start = i;
+                    continue;
+                }
+                // we went from 'a' to 'A', treat this as a part
+                if (!char.IsUpper( previous ) && char.IsUpper( current )) {
+                    ranges.Add( new Range( start, i ) );
+                    start = i;
+                    continue;
+                }
+                // we went from an acronym like "URL" into a new word like "Options":
+                // split before the last uppercase letter so that "URL" and "Options" are separate parts
+                if (char.IsUpper( previous ) && char.IsLower( current ) && i - 1 > start) {
+                    ranges.Add( new Range( start, i - 1 ) );
+                    start = i - 1;
                 }
             }
             ranges.Add( new Range( start, name.Length ) );
