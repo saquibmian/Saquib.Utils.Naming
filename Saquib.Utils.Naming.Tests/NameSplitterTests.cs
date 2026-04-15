@@ -31,5 +31,41 @@ namespace Saquib.Utils.Naming {
             Assert.Equal( expected, parts );
         }
 
+        [Fact]
+        public void Split__StandaloneAcronym() {
+            var expected = new[] { "url" };
+
+            var parts = NameSplitter.Split( "URL" );
+
+            Assert.Equal( expected, parts );
+        }
+
+        [Fact]
+        public void Split__AcronymFollowedByWord() {
+            var expected = new[] { "url", "options" };
+
+            var parts = NameSplitter.Split( "URLOptions" );
+
+            Assert.Equal( expected, parts );
+        }
+
+        [Fact]
+        public void Split__WordFollowedByAcronym() {
+            var expected = new[] { "my", "url" };
+
+            var parts = NameSplitter.Split( "myURL" );
+
+            Assert.Equal( expected, parts );
+        }
+
+        [Fact]
+        public void Split__WordAcronymWord() {
+            var expected = new[] { "my", "url", "options" };
+
+            var parts = NameSplitter.Split( "myURLOptions" );
+
+            Assert.Equal( expected, parts );
+        }
+
     }
 }

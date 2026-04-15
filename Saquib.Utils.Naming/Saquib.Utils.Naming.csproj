@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net6.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <PackageVersion>2.0.0</PackageVersion>
     <PackageProjectUrl>https://github.com/saquibmian/Saquib.Utils.Naming</PackageProjectUrl>
     <PackageDescription>A set of strategies for altering names, including camel and pascal casing.</PackageDescription>
